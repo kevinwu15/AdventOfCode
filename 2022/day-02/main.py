@@ -10,11 +10,9 @@ scores = [1, 2, 3]
 def part1(puzzle_input):
     score = 0
     for i in puzzle_input:
-        playerChoice = code.get(i[2])
-        pIndex = choices.index(playerChoice)
+        pIndex = choices.index(code.get(i[2]))
         score += scores[pIndex]
-        oppChoice = code.get(i[0])
-        oIndex = choices.index(oppChoice)
+        oIndex = choices.index(code.get(i[0]))
         if pIndex == oIndex:
             score += 3
         if pIndex - 1 == oIndex or pIndex + 2 == oIndex:
@@ -24,8 +22,7 @@ def part1(puzzle_input):
 def part2(puzzle_input):
     score = 0
     for i in puzzle_input:
-        oppChoice = code.get(i[0])
-        oIndex = choices.index(oppChoice)
+        oIndex = choices.index(code.get(i[0]))
         result = i[2]
         if result == 'X':
             try:
