@@ -14,11 +14,11 @@ def part1(puzzle_input, letters):
         chars = []
         first = slice(0, len(i) // 2)
         second = slice(len(i) // 2, len(i))
-        for j in range(len(i) // 2):
-            chars.append(i[first][j])
-        for k in range(len(i) // 2):
-            if i[second][k] in chars:
-                sum += letters.get(i[second][k])
+        for j in i[first]:
+            chars.append(j)
+        for k in i[second]:
+            if k in chars:
+                sum += letters.get(k)
                 break
     return sum
                 
