@@ -22,12 +22,9 @@ def get_boxes(columns):
         else:
             col = 0
             for j in range(0, len(line), 4):
-                try:
-                    if line[j: j + 4] != "    ":
-                        puzzle_input[col].append(line[j: j + 4])
-                    col += 1
-                except IndexError:
-                    continue
+                if line[j: j + 4] != "    ":
+                    puzzle_input[col].append(line[j: j + 4])
+                col += 1
     return puzzle_input
 
 def get_moves():
