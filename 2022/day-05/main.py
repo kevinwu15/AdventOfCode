@@ -1,7 +1,17 @@
-def get_boxes():
-    f = open("2022/day-05/input.txt", "r")
+filePath = "2022/day-05/input.txt"
+
+def get_col():
+    f = open(filePath, "r")
+    line = True
+    while line:
+        line = f.readline().strip("\n")
+        if "1" in line:
+            row = line.split("   ")
+            return int(row[len(row) - 1])
+
+def get_boxes(columns):
+    f = open(filePath, "r")
     puzzle_input = []
-    columns = 9
     for _ in range(columns):
         puzzle_input.append([])
     line = True
@@ -21,7 +31,7 @@ def get_boxes():
     return puzzle_input
 
 def get_moves():
-    f = open("2022/day-05/input.txt", "r")
+    f = open(filePath, "r")
     puzzle_input = []
     start = False
     line = f.readline()
@@ -61,8 +71,9 @@ def part2(boxes, moves):
         result += col[0][1]
     return result
 
-boxesInput1 = get_boxes()
-boxesInput2 = get_boxes()
+col = get_col()
+boxesInput1 = get_boxes(col)
+boxesInput2 = get_boxes(col)
 movesInput = get_moves()
 
 print("Part 1: {}".format(part1(boxesInput1, movesInput)))
