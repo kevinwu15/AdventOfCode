@@ -55,11 +55,8 @@ def part1(puzzle_input, tree):
     current = ""
     for i in range(len(puzzle_input)):
         try:
-
             if puzzle_input[i][1] == "cd":
                 current = cd(current, puzzle_input[i])
-                # print(current)
-            
             if puzzle_input[i][1] == "ls":
                 i = ls(puzzle_input, current, i)
         except IndexError:
@@ -77,11 +74,8 @@ def part2(puzzle_input, tree):
     current = ""
     for i in range(len(puzzle_input)):
         try:
-
             if puzzle_input[i][1] == "cd":
-                current = cd(current, puzzle_input[i])
-                # print(current)
-            
+                current = cd(current, puzzle_input[i])            
             if puzzle_input[i][1] == "ls":
                 i = ls(puzzle_input, current, i)
         except IndexError:
