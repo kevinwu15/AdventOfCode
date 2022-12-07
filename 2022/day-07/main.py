@@ -1,5 +1,3 @@
-from pprint import pprint
-
 def get_input():
     f = open("2022/day-07/input.txt", "r")
     line = True
@@ -7,7 +5,6 @@ def get_input():
     while line:
         line = f.readline()
         puzzle_input.append(line.strip("\n").split(" "))
-
     return puzzle_input
 
 tree = {}
