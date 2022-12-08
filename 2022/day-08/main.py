@@ -134,7 +134,6 @@ def part1(puzzle_input):
         for x in range(len(puzzle_input[0])):
             if isVisible(puzzle_input, x, y):
                 count += 1
-            # print(str(puzzle_input[y][x]) + " " + str(isVisible(puzzle_input, x, y)))
     return count
         
 
