@@ -11,12 +11,10 @@ def part1(puzzle_input):
     total = 0
 
     for i in range(len(puzzle_input)):
+        queue.append(0)
         if "addx" in puzzle_input[i]:
             change = int(puzzle_input[i].split(" ")[1])
-            queue.append(0)
             queue.append(change)
-        if "noop" in puzzle_input[i]:
-            queue.append(0)
     
     for cycle in range(1, len(queue) + 1):
         if cycle in interesting:
@@ -46,13 +44,12 @@ def part2(puzzle_input):
             row += 1
             if row != 0:
                 board.append(line)
-            line = ""
+                line = ""
         index = cycle - (40 * row) - 1
         if index >= sprite - 1 and index <= sprite + 1:
             line += "#"
         else:
             line += "."
-        sprite = register
         register += queue.pop(0)
         sprite = register
     board.append(line)
@@ -60,9 +57,9 @@ def part2(puzzle_input):
 
 puzzle_input = get_input()
 
+print("Part 1: {}".format(part1(puzzle_input)))
+
 board = part2(puzzle_input)
 g = open("2022/day-10/result.txt", "a")
 for i in board:
     g.write(i + '\n')
-
-print("Part 1: {}".format(part1(puzzle_input)))
